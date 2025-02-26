@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <title>Lumora.ai - Ilumine o Oculto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- Fundo da galáxia -->
+    <div class="galaxy-background">
+        <!-- <div class="moon"></div> -->
+        <!-- Estrelas geradas dinamicamente via JS -->
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <h1>Lumora.ai</h1>
+        <img src="assets/images/logo.jpeg" alt="Lumora.ai Logo" class="logo-image">
+        <p>Bem-vindo à <span class="highlight">Lumora</span>, uma ferramenta divina que ilumina o oculto. Com a sabedoria de um oráculo e a luz etérea de uma deusa, escaneamos serviços online em busca de vulnerabilidades, revelando o que está escondido e protegendo o que importa.</p>
+    </div>
+
+        <!-- Script para as estrelas piscantes -->
+        <script>
+            const galaxy = document.querySelector('.galaxy-background');
+            
+            // Add nebula effect
+            const nebula = document.createElement('div');
+            nebula.classList.add('nebula');
+            galaxy.appendChild(nebula);
+
+            // Create stars with different sizes and depths
+            const starCount = {
+                verySmall: 150,
+                small: 100,
+                medium: 50,
+                large: 25
+            };
+
+            Object.entries(starCount).forEach(([size, count]) => {
+                for (let i = 0; i < count; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('stars', size);
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.animationDelay = `${Math.random() * 5}s`;
+                    star.style.transform = `translateZ(${Math.random() * 100}px)`;
+                    galaxy.appendChild(star);
+                }
+            });
+        </script>
+</body>
+</html>

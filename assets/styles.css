@@ -5,6 +5,29 @@
     box-sizing: border-box;
 }
 
+/* Media query variables */
+:root {
+    --h1-font-size: 5rem;
+    --p-font-size: 1.2rem;
+    --logo-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --h1-font-size: 3rem;
+        --p-font-size: 1rem;
+        --logo-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --h1-font-size: 2rem;
+        --p-font-size: 0.9rem;
+        --logo-width: 250px;
+    }
+}
+
 body {
     font-family: 'Cinzel', serif;
     background: #2a1f3d;
@@ -124,13 +147,15 @@ body {
     position: relative;
     z-index: 3;
     text-align: center;
-    padding: 40px;
+    padding: 20px;
     max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 h1 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 5rem;
+    font-size: var(--h1-font-size);
     font-weight: 900;
     color: #fff5f9;
     text-shadow: 
@@ -144,7 +169,7 @@ h1 {
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: var(--p-font-size);
     line-height: 1.6;
     color: #f8f0ff;
     margin-bottom: 30px;
@@ -156,8 +181,9 @@ p {
 }
 
 .logo-image {
-    width: 500px;
+    width: var(--logo-width);
     height: auto;
+    max-width: 100%;
     margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 0 25px rgba(226, 209, 255, 0.6);

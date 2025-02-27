@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <title>Lumora.ai - Ilumine o Oculto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -16,11 +20,54 @@
     <div class="container">
         <h1>Lumora.ai</h1>
         <img src="assets/images/logo.jpeg" alt="Logo da Lumora.ai, representando uma ferramenta divina de segurança" class="logo-image">
-        <p>Bem-vindo à <span class="highlight">Lumora</span>, uma ferramenta divina que ilumina o oculto. Com a sabedoria de um oráculo e a luz etérea de uma deusa, escaneamos serviços online em busca de vulnerabilidades, revelando o que está escondido e protegendo o que importa.</p>
+        <p>Bem-vindo à <span class="highlight">Lumora</span></p>
+        <p>Um framework inteligente que integra a API do Gemini com ferramentas de cybersegurança para automatizar a detecção de vulnerabilidades em serviços online.</p>
+        <button id="saibaMaisBtn" class="glow-button">Saiba mais</button>
+        
+        <div id="expandedContent" class="expanded-content">
+            <section>
+                <h2><i class="fas fa-lightbulb"></i> Proposta</h2>
+                <p>A Lumora.ai tem como objetivo otimizar a análise de segurança por meio da integração inteligente entre a API do Gemini e soluções consagradas de cibersegurança.</p>
+            </section>
+            
+            <section>
+                <h2><i class="fas fa-cogs"></i> Funcionamento</h2>
+                <p>Nosso framework aproveita as capacidades do Gemini para coordenar e interpretar os resultados de diversas ferramentas de segurança, automatizando a detecção de vulnerabilidades na infraestrutura de forma eficiente.</p>
+            </section>
+            
+            <section>
+                <h2><i class="fas fa-microchip"></i> Tecnologia</h2>
+                <p>Alia a avançada capacidade de processamento de linguagem natural do Gemini a soluções especializadas em testes de penetração e análise de vulnerabilidades, garantindo uma abordagem robusta e abrangente.</p>
+            </section>
+            
+            <section>
+                <h2><i class="fas fa-tools"></i> Ferramentas Integradas</h2>
+                <p>Incorporamos as principais soluções de cibersegurança disponíveis no mercado, possibilitando análises automatizadas e a geração de relatórios detalhados em uma interface centralizada e intuitiva.</p>
+            </section>
+        
+            <section>
+                <h2><i class="fas fa-puzzle-piece"></i> Flexibilidade</h2>
+                <p>A Lumora.ai oferece suporte a plugins personalizados desenvolvidos em Python, permitindo que profissionais de segurança e desenvolvedores ampliem suas funcionalidades ao criar e integrar ferramentas exclusivas de análise ao framework.</p>
+            </section>
+        </div>
     </div>
 
     <!-- Script para estrelas e nebulosa -->
     <script>
+        // Button functionality
+        document.getElementById('saibaMaisBtn').addEventListener('click', function() {
+            const expandedContent = document.getElementById('expandedContent');
+            expandedContent.classList.toggle('active');
+            this.textContent = expandedContent.classList.contains('active') ? 'Mostrar menos' : 'Saiba mais';
+            
+            if (expandedContent.classList.contains('active')) {
+                expandedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Galaxy background
         const galaxy = document.querySelector('.galaxy-background');
         const fragment = document.createDocumentFragment();
 

@@ -5,62 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <title>Lumora.ai - Ilumine o Oculto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <!-- Fundo da galáxia -->
-    <div class="galaxy-background">
-        <!-- <div class="moon"></div> -->
-        <!-- Estrelas geradas dinamicamente via JS -->
-    </div>
+    <div class="galaxy-background"></div>
 
     <!-- Conteúdo principal -->
     <div class="container">
         <h1>Lumora.ai</h1>
-        <img src="assets/images/logo.jpeg" alt="Lumora.ai Logo" class="logo-image">
+        <img src="assets/images/logo.jpeg" alt="Logo da Lumora.ai, representando uma ferramenta divina de segurança" class="logo-image">
         <p>Bem-vindo à <span class="highlight">Lumora</span>, uma ferramenta divina que ilumina o oculto. Com a sabedoria de um oráculo e a luz etérea de uma deusa, escaneamos serviços online em busca de vulnerabilidades, revelando o que está escondido e protegendo o que importa.</p>
     </div>
 
-        <!-- Script para as estrelas piscantes -->
-        <script>
-            const galaxy = document.querySelector('.galaxy-background');
-            const fragment = document.createDocumentFragment();
-            
-            // Add nebula effect
-            const nebula = document.createElement('div');
-            nebula.classList.add('nebula');
-            galaxy.appendChild(nebula);
+    <!-- Script para estrelas e nebulosa -->
+    <script>
+        const galaxy = document.querySelector('.galaxy-background');
+        const fragment = document.createDocumentFragment();
 
-            // Create stars with different sizes and depths
-            const starCount = {
-                small: 100,
-                medium: 50,
-                large: 25
-            };
+        // Adiciona nebulosa
+        const nebula = document.createElement('div');
+        nebula.classList.add('nebula');
+        fragment.appendChild(nebula);
 
-            // Pre-calculate random values for better performance
-            const createStar = (size) => {
-                const star = document.createElement('div');
-                star.classList.add('stars', size);
-                star.style.cssText = `
-                    left: ${Math.random() * 100}%;
-                    top: ${Math.random() * 100}%;
-                    animation-delay: ${Math.random() * 5}s;
-                    transform: translateZ(${Math.random() * 100}px);
-                `;
-                return star;
-            };
+        // Configuração de estrelas
+        const starCount = {
+            small: 80,  // Reduzido para melhorar desempenho
+            medium: 40,
+            large: 20
+        };
 
-            // Use DocumentFragment for batch DOM updates
-            Object.entries(starCount).forEach(([size, count]) => {
-                for (let i = 0; i < count; i++) {
-                    fragment.appendChild(createStar(size));
-                }
-            });
+        const createStar = (size) => {
+            const star = document.createElement('div');
+            star.classList.add('stars', size);
+            star.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation-delay: ${Math.random() * 5}s;
+                transform: translateZ(${Math.random() * 100}px);
+            `;
+            return star;
+        };
 
-            // Single DOM update
-            galaxy.appendChild(fragment);
-        </script>
+        // Geração de estrelas
+        Object.entries(starCount).forEach(([size, count]) => {
+            for (let i = 0; i < count; i++) {
+                fragment.appendChild(createStar(size));
+            }
+        });
+
+        galaxy.appendChild(fragment);
+    </script>
 </body>
 </html>

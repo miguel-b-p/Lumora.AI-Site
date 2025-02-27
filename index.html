@@ -25,6 +25,7 @@
         <!-- Script para as estrelas piscantes -->
         <script>
             const galaxy = document.querySelector('.galaxy-background');
+            const fragment = document.createDocumentFragment();
             
             // Add nebula effect
             const nebula = document.createElement('div');
@@ -33,23 +34,33 @@
 
             // Create stars with different sizes and depths
             const starCount = {
-                verySmall: 150,
                 small: 100,
                 medium: 50,
                 large: 25
             };
 
+            // Pre-calculate random values for better performance
+            const createStar = (size) => {
+                const star = document.createElement('div');
+                star.classList.add('stars', size);
+                star.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 5}s;
+                    transform: translateZ(${Math.random() * 100}px);
+                `;
+                return star;
+            };
+
+            // Use DocumentFragment for batch DOM updates
             Object.entries(starCount).forEach(([size, count]) => {
                 for (let i = 0; i < count; i++) {
-                    const star = document.createElement('div');
-                    star.classList.add('stars', size);
-                    star.style.left = `${Math.random() * 100}%`;
-                    star.style.top = `${Math.random() * 100}%`;
-                    star.style.animationDelay = `${Math.random() * 5}s`;
-                    star.style.transform = `translateZ(${Math.random() * 100}px)`;
-                    galaxy.appendChild(star);
+                    fragment.appendChild(createStar(size));
                 }
             });
+
+            // Single DOM update
+            galaxy.appendChild(fragment);
         </script>
 </body>
 </html>

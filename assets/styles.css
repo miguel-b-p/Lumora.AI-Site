@@ -1,11 +1,11 @@
-/* General styles */
+/* Estilos gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Media query variables */
+/* Variáveis para responsividade */
 :root {
     --h1-font-size: 5rem;
     --p-font-size: 1.2rem;
@@ -28,6 +28,7 @@
     }
 }
 
+/* Estilização do body */
 body {
     font-family: 'Cinzel', serif;
     background: #2a1f3d;
@@ -36,32 +37,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
 }
 
-/* Galaxy background and effects */
+/* Fundo da galáxia */
 .galaxy-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: radial-gradient(circle at center, #e6c3e6 0%, #b088f9 30%, #4a3b6f 60%, #2a1f3d 90%);
     z-index: 1;
     overflow: hidden;
     perspective: 1000px;
     transform-style: preserve-3d;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
+/* Estrelas */
 .stars {
     position: absolute;
     background: #fff;
     border-radius: 50%;
     animation: twinkle-3d 5s infinite;
     transform-style: preserve-3d;
-    box-shadow: 0 0 3px #fff, 0 0 5px #fff;
+    box-shadow: 0 0 5px #fff; /* Simplificado */
 }
 
 .stars.small {
@@ -79,10 +78,10 @@ body {
     height: 3px;
 }
 
+/* Nebulosa */
 .nebula {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: radial-gradient(ellipse at center, 
         rgba(255, 223, 248, 0.2) 0%,
         rgba(176, 136, 249, 0.15) 30%,
@@ -92,23 +91,11 @@ body {
     transform-style: preserve-3d;
 }
 
-.moon {
-    position: absolute;
-    top: 10%;
-    right: 15%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #8a4af5 20%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.8;
-    z-index: 2;
-}
-
-/* Animations */
+/* Animações */
 @keyframes twinkle-3d {
     0%, 100% { 
         opacity: 0.2;
-        transform: translateZ(0);
+        transform: translateZ(0) scale(1);
     }
     50% { 
         opacity: 1;
@@ -125,7 +112,7 @@ body {
     }
 }
 
-@keyframes titleGlow {
+@keyframes title-glow {
     from {
         text-shadow: 
             0 0 10px rgba(255, 223, 248, 0.8),
@@ -142,7 +129,7 @@ body {
     }
 }
 
-/* Main container and content */
+/* Conteúdo principal */
 .container {
     position: relative;
     z-index: 3;
@@ -165,7 +152,7 @@ h1 {
         2px 2px 4px rgba(42, 31, 61, 0.5);
     margin-bottom: 20px;
     letter-spacing: 2px;
-    animation: titleGlow 3s infinite alternate;
+    animation: title-glow 3s infinite alternate;
 }
 
 p {
@@ -192,18 +179,4 @@ p {
 
 .logo-image:hover {
     transform: scale(1.05);
-}
-
-.coming-soon {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 2.5rem;
-    color: #ffd700;
-    text-shadow: 
-        0 0 10px rgba(255, 215, 0, 0.8),
-        0 0 20px rgba(255, 215, 0, 0.6),
-        0 0 30px rgba(255, 215, 0, 0.4),
-        2px 2px 4px rgba(42, 31, 61, 0.5);
-    margin-top: 30px;
-    letter-spacing: 3px;
-    animation: titleGlow 3s infinite alternate;
 }
